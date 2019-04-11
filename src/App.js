@@ -75,7 +75,7 @@ class App extends Component {
     }
 
     if(this.state.newScore > 100 || this.state.newScore < 0){
-      alert("Error, scores can only be between 0 and 100!")
+      alert("Error! Scores can only be between 0 and 100!.")
       return
     }
 
