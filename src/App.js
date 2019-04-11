@@ -28,10 +28,10 @@ class App extends Component {
     if(player1.score > player2.score){
       return -1
     }
-    if(player1.lName < player2.lName){
+    if(player1.lName.toLowerCase() < player2.lName.toLowerCase()){
       return -1
     }
-    if(player1.lName > player2.lName){
+    if(player1.lName.toLowerCase() > player2.lName.toLowerCase()){
       return 1
     }
     return 0
