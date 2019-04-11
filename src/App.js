@@ -13,10 +13,34 @@ class App extends Component {
     }
   }
 
+  // componentDidMount(){
+  //   let sortedPlayers = [...this.state.players]
+  //   sortedPlayers = sortedPlayers.sort(this.comparePlayers)
+  //   this.setState({
+  //     players: sortedPlayers
+  //   }) 
+  // }
+
+  comparePlayers = (player1, player2) => {
+    if(player1.score < player2.score){
+      return 1
+    }
+    if(player1.score > player2.score){
+      return -1
+    }
+    if(player1.lName < player2.lName){
+      return -1
+    }
+    if(player1.lName > player2.lName){
+      return 1
+    }
+    return 0
+  }
+
   displayPlayers = () => {
     let playersList = this.state.players.map((player,i) => {
       return <tr key={i}>
-        <td>{player.fName}, {player.lName}</td>
+        <td>{player.lName}, {player.fName}</td>
         <td>{player.score}</td>
         <td><button onClick={()=>{this.deletePlayer(i)}}>Delete</button></td>
         </tr>
@@ -59,7 +83,7 @@ class App extends Component {
     newPlayersList.push(newPlayer)
     console.log(newPlayersList)
     this.setState({
-      players: newPlayersList
+      players: newPlayersList.sort(this.comparePlayers)
     })
   }
 
