@@ -47,10 +47,19 @@
   width: 150px;
 }
 
+#pga-logo {
+  margin: 40px auto 10px auto;
+  width: 80px;
+}
+
 #score-text-input {
   height: 20px;
   margin: auto 0;
   width: 42px;
+}
+
+h1 {
+  margin-top: 0;
 }
 
 table {

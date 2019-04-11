@@ -3,6 +3,7 @@ import './App.css';
 
 class App extends Component {
   
+  // app constructor
   constructor(){
     super()
     this.state = {
@@ -13,30 +14,7 @@ class App extends Component {
     }
   }
 
-  // componentDidMount(){
-  //   let sortedPlayers = [...this.state.players]
-  //   sortedPlayers = sortedPlayers.sort(this.comparePlayers)
-  //   this.setState({
-  //     players: sortedPlayers
-  //   }) 
-  // }
-
-  comparePlayers = (player1, player2) => {
-    if(player1.score < player2.score){
-      return 1
-    }
-    if(player1.score > player2.score){
-      return -1
-    }
-    if(player1.lName.toLowerCase() < player2.lName.toLowerCase()){
-      return -1
-    }
-    if(player1.lName.toLowerCase() > player2.lName.toLowerCase()){
-      return 1
-    }
-    return 0
-  }
-
+  // function that displays the players
   displayPlayers = () => {
     let playersList = this.state.players.map((player,i) => {
       return <tr key={i}>
@@ -48,24 +26,28 @@ class App extends Component {
     return playersList;
   }
 
-  addFName = (e) => {
+  // handles text input and sets it to state newFName
+  setFName = (e) => {
     this.setState({
       newFName: e.target.value  
     })
   }
 
-  addLName = (e) => {
+  // handles text input and sets it to state newLName
+  setLName = (e) => {
     this.setState({
       newLName: e.target.value  
     })
   }
 
-  addScore = (e) => {
+  // handles text input and sets it to state newScore
+  setScore = (e) => {
     this.setState({
       newScore: e.target.value  
     })
   }
 
+  // adds new player to leaderboard
   addPlayer = (e) => {
     let newPlayersList = [...this.state.players]
 
@@ -83,10 +65,31 @@ class App extends Component {
     newPlayersList.push(newPlayer)
     console.log(newPlayersList)
     this.setState({
-      players: newPlayersList.sort(this.comparePlayers)
+      players: newPlayersList.sort(this.comparePlayers),
+      newFName: "",
+      newLName: "",
+      newScore: ""
     })
   }
 
+  // sorts based on score and last name
+  comparePlayers = (player1, player2) => {
+    if(player1.score < player2.score){
+      return 1
+    }
+    if(player1.score > player2.score){
+      return -1
+    }
+    if(player1.lName.toLowerCase() < player2.lName.toLowerCase()){
+      return -1
+    }
+    if(player1.lName.toLowerCase() > player2.lName.toLowerCase()){
+      return 1
+    }
+    return 0
+  }
+
+  // delete player from leaderboard
   deletePlayer = (i) => {
     let shorterList = [...this.state.players]
     shorterList.splice(i, 1);
@@ -101,16 +104,17 @@ class App extends Component {
         <h2>Add a Player</h2>
         <form className="add-player-form">
           <div className="form-row">
-            <p className="form-label">First Name: </p><input type="text" className="form-text-input" value={this.state.newFName} onChange={(e)=>{this.addFName(e)}} placeholder="first name" />
+            <p className="form-label">First Name: </p><input type="text" className="form-text-input" value={this.state.newFName} onChange={(e)=>{this.setFName(e)}} placeholder="first name" />
           </div>
           <div className="form-row">
-            <p className="form-label">Last Name: </p><input type="text" className="form-text-input" value={this.state.newLName} onChange={(e)=>{this.addLName(e)}} placeholder="last name" />
+            <p className="form-label">Last Name: </p><input type="text" className="form-text-input" value={this.state.newLName} onChange={(e)=>{this.setLName(e)}} placeholder="last name" />
           </div>
           <div className="form-row">
-            <p className="form-label">Score: </p><input type="number" id="score-text-input" value={this.state.newScore} onChange={(e)=>{this.addScore(e)}} placeholder="score" />
+            <p className="form-label">Score: </p><input type="number" id="score-text-input" value={this.state.newScore} onChange={(e)=>{this.setScore(e)}} placeholder="score" />
           </div>
           <button type="button" id="add-player-button" onClick={(e)=>{this.addPlayer(e)}}>Add</button>
         </form>
+        <img src="../pga-logo.png" id="pga-logo" alt="pga-logo" />
         <h1>Leaderboard</h1>
         <table id="leaderboard">
           <tr>
