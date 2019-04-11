@@ -7,7 +7,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      players: [{fName:"Michael", lName: "Scott", score: 99}, {fName:"John", lName: "Junge", score: 96}, {fName:"Rob", lName: "Vera", score: 88}],
+      players: [{fName:"Michael", lName: "Scott", score: 99}, {fName:"Jim", lName: "Halpert", score: 96}, {fName:"Stanley", lName: "Hudson", score: 88}],
       newFName: "",
       newLName: "",
       newScore: ""
