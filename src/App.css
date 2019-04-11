@@ -23,11 +23,58 @@
   color: #61dafb;
 }
 
-#leaderboard {
-  margin: auto;
-  width: 40%;
+#add-player-button {
+  margin-top: 15px;
 }
 
+.add-player-form {
+  margin: 0 auto;
+  width: 245px;
+}
+
+.form-label {
+  text-align: left;
+  width: 95px;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-text-input {
+  height: 20px;
+  margin: auto 0;
+  width: 150px;
+}
+
+#score-text-input {
+  height: 20px;
+  margin: auto 0;
+  width: 42px;
+}
+
+table {
+  border-collapse: collapse; 
+  border-spacing: 0;   
+  color: #333;
+  margin: 30px auto 0 auto;
+  width: 640px; 
+}
+
+td, th { 
+  border: 1px solid #CCC; 
+  height: 30px; 
+} 
+
+th {  
+  background: #F3F3F3;
+  font-weight: bold;
+}
+
+td {  
+  background: #FAFAFA;
+  text-align: center;
+}
 
 @keyframes App-logo-spin {
   from {

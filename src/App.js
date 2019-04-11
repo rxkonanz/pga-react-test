@@ -98,13 +98,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Leaderboard</h1>
-        <form>
-          <input type="text" value={this.state.newFName} onChange={(e)=>{this.addFName(e)}} placeholder="first name" />
-          <input type="text" value={this.state.newLName} onChange={(e)=>{this.addLName(e)}} placeholder="last name" />
-          <input type="number" value={this.state.newScore} onChange={(e)=>{this.addScore(e)}} placeholder="score" />
-          <button type="button" onClick={(e)=>{this.addPlayer(e)}}>Add Player</button>
+        <h2>Add a Player</h2>
+        <form className="add-player-form">
+          <div className="form-row">
+            <p className="form-label">First Name: </p><input type="text" className="form-text-input" value={this.state.newFName} onChange={(e)=>{this.addFName(e)}} placeholder="first name" />
+          </div>
+          <div className="form-row">
+            <p className="form-label">Last Name: </p><input type="text" className="form-text-input" value={this.state.newLName} onChange={(e)=>{this.addLName(e)}} placeholder="last name" />
+          </div>
+          <div className="form-row">
+            <p className="form-label">Score: </p><input type="number" id="score-text-input" value={this.state.newScore} onChange={(e)=>{this.addScore(e)}} placeholder="score" />
+          </div>
+          <button type="button" id="add-player-button" onClick={(e)=>{this.addPlayer(e)}}>Add</button>
         </form>
+        <h1>Leaderboard</h1>
         <table id="leaderboard">
           <tr>
             <th>Name</th>
