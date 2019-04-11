@@ -48,6 +48,15 @@ class App extends Component {
       players: newPlayersList
     })
   }
+
+  deletePlayer = (i) => {
+    let shorterList = [...this.state.players]
+    shorterList.splice(i, 1);
+    this.setState({
+      players: shorterList
+    })
+  }
+
   render() {
     return (
       <div className="App">
