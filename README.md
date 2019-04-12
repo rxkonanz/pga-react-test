@@ -12,4 +12,4 @@ The application was created with the React.js framework. It is a front-end only 
 
 ### Credit
 
-Created by [Roberto Konanz](https://github.com/rxkonanz) 
+Created by [Roberto Konanz](https://github.com/rxkonanz)

@@ -20,7 +20,7 @@ class App extends Component {
       return <tr key={i}>
         <td>{player.lName}, {player.fName}</td>
         <td>{player.score}</td>
-        <td><button onClick={()=>{this.deletePlayer(i)}}>Delete</button></td>
+        <td><button onClick={()=>{this.deletePlayer(i)}}>Edit</button> <button onClick={()=>{this.deletePlayer(i)}}>Delete</button></td>
         </tr>
     })
     return playersList;
