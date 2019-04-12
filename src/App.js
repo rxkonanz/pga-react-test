@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import AddPlayerForm from './components/AddPlayerForm';
+import Leaderboard from './components/Leaderboard';
 
 class App extends Component {
   
@@ -114,29 +116,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2>Add a Player</h2>
-        <form className="add-player-form">
-          <div className="form-row">
-            <p className="form-label">First Name: </p><input type="text" className="form-text-input" value={this.state.newFName} onChange={(e)=>{this.setFName(e)}} placeholder="first name" />
-          </div>
-          <div className="form-row">
-            <p className="form-label">Last Name: </p><input type="text" className="form-text-input" value={this.state.newLName} onChange={(e)=>{this.setLName(e)}} placeholder="last name" />
-          </div>
-          <div className="form-row">
-            <p className="form-label">Score: </p><input type="number" id="score-text-input" value={this.state.newScore} onChange={(e)=>{this.setScore(e)}} placeholder="score" />
-          </div>
-          <button type="button" id="add-player-button" onClick={(e)=>{this.addPlayer(e)}}>Add</button>
-        </form>
-        <img src="../pga-logo.png" id="pga-logo" alt="pga-logo" />
-        <h1>Leaderboard</h1>
-        <table id="leaderboard">
-          <tr>
-            <th>Name</th>
-            <th>Score</th>
-            <th></th>
-          </tr>
-          {this.displayPlayers()}
-        </table>
+        <AddPlayerForm state={this.state} addPlayer={this.addPlayer} setFName={this.setFName} setLName={this.setLName} setScore={this.setScore}/>
+        <Leaderboard displayPlayers={this.displayPlayers} />
       </div>
     );
   }
