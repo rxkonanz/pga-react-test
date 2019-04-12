@@ -1,6 +1,6 @@
-## TodoMVC (REACT)
+## PGA Leaderboard (REACT)
 
-Simple React Leaderboard.
+Simple React Leaderboard
 
 ### Resources
 
