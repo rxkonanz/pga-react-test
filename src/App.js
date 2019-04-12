@@ -20,7 +20,7 @@ class App extends Component {
       return <tr key={i}>
         <td>{player.lName}, {player.fName}</td>
         <td>{player.score}</td>
-        <td><button onClick={()=>{this.deletePlayer(i)}}>Edit</button> <button onClick={()=>{this.deletePlayer(i)}}>Delete</button></td>
+        <td><button onClick={()=>{this.editPlayer(i)}}>Edit</button> <button onClick={()=>{this.deletePlayer(i)}}>Delete</button></td>
         </tr>
     })
     return playersList;
@@ -49,6 +49,7 @@ class App extends Component {
 
   // adds new player to leaderboard
   addPlayer = (e) => {
+
     let newPlayersList = [...this.state.players]
 
     if(this.state.fName === "" || this.state.newLName === "" || this.state.newScore === "" ){
@@ -92,10 +93,22 @@ class App extends Component {
   // delete player from leaderboard
   deletePlayer = (i) => {
     let shorterList = [...this.state.players]
-    shorterList.splice(i, 1);
+    shorterList.splice(i, 1)
     this.setState({
       players: shorterList
     })
+  }
+
+  editPlayer = (i) => {
+    console.log(this.state.players[i])
+    let shorterList = [...this.state.players]
+    shorterList.splice(i, 1)
+    this.setState({
+      newFName: this.state.players[i].fName,
+      newLName: this.state.players[i].lName,
+      newScore: this.state.players[i].score,
+      players: shorterList
+    }) 
   }
 
   render() {
